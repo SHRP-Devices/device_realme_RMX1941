@@ -114,7 +114,6 @@ RECOVERY_SDCARD_ON_DATA := true
 # TWRP Configuration
 TW_THEME := portrait_hdpi
 TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_DEVICE_VERSION :=1 BY SIDDK
 TW_MAX_BRIGHTNESS := 2047
 TW_DEFAULT_BRIGHTNESS := 560
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
@@ -146,3 +145,29 @@ TARGET_USES_LOGD := true
 # Avb
 BOARD_AVB_ENABLE := true
 BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+
+#SHRP Device Specific Properties
+
+# Path of your SHRP Tree
+SHRP_PATH := device/realme/RMX1941
+
+# Maintainer name *
+SHRP_MAINTAINER := SIDDK
+
+# Device codename *
+SHRP_DEVICE_CODE := RMX1941
+
+# Recovery Type (It can be treble,normal,SAR) [Only for About Section] *
+SHRP_REC_TYPE := Treble
+
+# Recovery Type (It can be A/B or A_only) [Only for About Section] *
+SHRP_DEVICE_TYPE := A_only
+
+SHRP_EXPRESS := true
+SHRP_EDL_MODE := 0
+SHRP_EXTERNAL := /external_sd
+SHRP_INTERNAL := /sdcard
+SHRP_OTG := /usb_otg
+SHRP_FLASH := 0
+SHRP_REC := /dev/block/platform/bootdevice/by-name/recovery
+SHRP_NOTCH := true
