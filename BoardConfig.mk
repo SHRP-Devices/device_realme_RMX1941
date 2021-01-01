@@ -55,9 +55,9 @@ BOARD_SECOND_OFFSET := 0x00e88000
 BOARD_KERNEL_TAGS_OFFSET := 0x07808000
 BOARD_DTB_OFFSET := 0x07808000
 BOARD_KERNEL_IMAGE_NAME := Image.gz
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz
-TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo
 BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_MKBOOTIMG_ARGS += --base $(BOARD_KERNEL_BASE)
@@ -75,6 +75,10 @@ TARGET_BOARD_PLATFORM := mt6765
 TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
 TARGET_IS_64_BIT := true
+
+# Crypto
+TW_INCLUDE_CRYPTO := false
+TW_INCLUDE_CRYPTO_FBE := false
 
 # MTK Hardware
 BOARD_HAS_MTK_HARDWARE := true
@@ -115,7 +119,7 @@ TW_THEME := portrait_hdpi
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_DEVICE_VERSION :=BY SIDDK
 TW_MAX_BRIGHTNESS := 2047
-TW_DEFAULT_BRIGHTNESS := 560
+TW_DEFAULT_BRIGHTNESS := 800
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file
@@ -133,6 +137,7 @@ TW_SCREEN_BLANK_ON_BOOT := true
 TW_SKIP_COMPATIBILITY_CHECK := true
 TW_Y_OFFSET := 52
 TW_H_OFFSET := -52
+TW_INCLUDE_LOGICAL := oppo_product oppo_engineering common_preload																  
 
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
@@ -147,27 +152,5 @@ TARGET_USES_LOGD := true
 BOARD_AVB_ENABLE := true
 BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 
-#SHRP Device Specific Properties
-
-# Path of your SHRP Tree
-SHRP_PATH := device/realme/RMX1941
-
-# Maintainer name *
-SHRP_MAINTAINER := SIDDK
-
-# Device codename *
-SHRP_DEVICE_CODE := RMX1941
-
-# Recovery Type (It can be treble,normal,SAR) [Only for About Section] *
-SHRP_REC_TYPE := Treble
-
-# Recovery Type (It can be A/B or A_only) [Only for About Section] *
-SHRP_DEVICE_TYPE := A_only
-SHRP_EXPRESS := true
-SHRP_EDL_MODE := 0
-SHRP_EXTERNAL := /external_sd
-SHRP_INTERNAL := /sdcard
-SHRP_OTG := /usb_otg
-SHRP_FLASH := 0
-SHRP_REC := /dev/block/platform/bootdevice/by-name/recovery
-SHRP_NOTCH := true
+# PBRP Build Flags
+PB_DISABLE_DEFAULT_TREBLE_COMP := true
