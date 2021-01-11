@@ -180,4 +180,4 @@ SHRP_OTG := /usb_otg
 SHRP_FLASH := 0
 SHRP_REC := /dev/block/platform/bootdevice/by-name/recovery
 SHRP_NOTCH := false
-SHRP_EXPRESS := true
+SHRP_DARK := true
