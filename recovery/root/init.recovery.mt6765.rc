@@ -3,8 +3,7 @@ on fs
     mkdir /mnt/vendor/persist 0777 system system
     mkdir /data/vendor/mcRegistry 0777 system system
     setprop crypto.ready 1
-
-on fs
+    write /sys/class/power_supply/usb/otg_switch 1
     start hwservicemanager
     start servicemanager
 
