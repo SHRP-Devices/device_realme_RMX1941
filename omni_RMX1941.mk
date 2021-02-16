@@ -16,7 +16,8 @@
 # limitations under the License.
 #
 # Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/embedded.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
 
 # Specify phone tech before including full_phone
 $(call inherit-product, vendor/omni/config/common.mk)
@@ -33,7 +34,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=RMX1941 \
     BUILD_PRODUCT=RMX1941 \
     TARGET_DEVICE=RMX1941
-    
+
 # HACK: Set vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.build.security_patch=2099-12-31
@@ -41,7 +42,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
     ro.bootimage.build.date.utc \
     ro.build.date.utc
-    
+
 # Dimen
 TARGET_SCREEN_HEIGHT := 1560
 TARGET_SCREEN_WIDTH := 720
