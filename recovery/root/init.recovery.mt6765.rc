@@ -38,6 +38,13 @@ service gatekeeper-1-0 /system/bin/android.hardware.gatekeeper@1.0-service
     disabled
     seclabel u:r:recovery:s0
 
+service erase_para /system/bin/dd if=/dev/null of=/dev/block/bootdevice/by-name/para
+    user root
+    group root
+    disabled
+    seclabel u:r:recovery:s0
+    oneshot
+
 on property:hwservicemanager.ready=true
     start hal_cryptoeng_oppo
     start keymaster-3-0
