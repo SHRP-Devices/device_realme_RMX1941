@@ -5,6 +5,7 @@ on fs
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
     setprop crypto.ready 1
     write /sys/class/power_supply/usb/otg_switch 1
+    start erase_para 
 
 service keystore_auth /system/bin/keystore_auth
     oneshot
